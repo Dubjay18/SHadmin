@@ -6,6 +6,8 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import "./App.css";
+import Product from "./pages/Product";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path={"/about"} element={<About />} />
           <Route path={"/products"} element={<Products />} />
           <Route path={"/contact"} element={<Contact />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path={"*"} element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

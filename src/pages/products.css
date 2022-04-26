@@ -1,0 +1,41 @@
+.cus-bg {
+  background-color: #ff7e06;
+}
+.card:hover {
+  transform: scale(1.1);
+  transition: ease-in-out 0.7s;
+}
+.scale:hover {
+  transform: scale(1.1);
+  transition: ease-in-out 0.7s;
+}
+.selected {
+  background-color: rgb(75, 161, 201);
+  color: white;
+}
+.mb {
+  margin-bottom: 100px;
+}
+.banner {
+  object-fit: cover;
+}
+.clip-bg {
+  padding: 3rem 3rem 20rem 3rem !important;
+}
+.h-screen {
+  height: 100vh;
+}
+.number {
+  width: 44px;
+  outline: none;
+  background-color: #d87518;
+  color: white;
+}
+.pointer {
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .w-lg-100 {
+    width: 100%;
+  }
+}
