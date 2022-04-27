@@ -7,7 +7,7 @@ import delImg from "../images/Rectangle 22.png";
 import eatImg from "../images/Rectangle 21.png";
 import { Link } from "react-router-dom";
 import Navigation from "../components/Navigation";
-import Footer from '../components/Footer'
+import Footer from "../components/Footer";
 import "./products.css";
 const Apikey = "3c4feed6ffb84681b1652949ebada8ff";
 function Products() {
@@ -15,7 +15,7 @@ function Products() {
   const [burgers, setBurgers] = useState([]);
   const [pizza, setPizza] = useState([]);
 
-  const [eatin, setEatin] = useState(true);
+  const [eatin, setEatin] = useState(false);
   const [delivery, setDelivery] = useState(false);
 
   const selectEatin = () => {
@@ -100,7 +100,7 @@ function Products() {
                 </div>
               </div>
             </Col>
-            <Col md={2} className="d-flex justify-content-center">
+            <Col md={2} className="d-flex justify-content-center ">
               <h5 className=" my-5">OR</h5>
             </Col>
             <Col md={5}>
@@ -131,7 +131,7 @@ function Products() {
         <Row className="mx-3 cus-bg" md={3}>
           {pies.map((e, i) => {
             return (
-              <Col key={i} md={4} sm={6}>
+              <Col key={i} md={4} sm={6} className="over">
                 <div
                   class="card mb-3 shadow p-3 "
                   style={{ maxWidth: "540px" }}
@@ -164,7 +164,7 @@ function Products() {
           })}
           {burgers.map((e, i) => {
             return (
-              <Col key={i} md={4} sm={6}>
+              <Col key={i} md={4} sm={6} className="over">
                 <div
                   class="card mb-3 shadow p-3 "
                   style={{ maxWidth: "540px" }}
@@ -197,7 +197,7 @@ function Products() {
           })}
           {pizza.map((e, i) => {
             return (
-              <Col key={i} md={4} sm={6}>
+              <Col key={i} md={4} sm={6} className="over">
                 <div
                   class="card mb-3 shadow p-3 "
                   style={{ maxWidth: "540px" }}
