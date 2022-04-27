@@ -10,4 +10,5 @@ Members
 6. Wilfex SH-IT-0002261
 7. Beauty Bamigbola SH-IT-0089399
 8. Blessing Olorunfemi. SH-IT-0048618
+9. Akpa Stanley Chinonso. SH-IT-0011717
  
