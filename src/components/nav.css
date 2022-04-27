@@ -1,0 +1,73 @@
+.nav-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 1.3em;
+  position: absolute;
+  top: 5;
+  left: 0;
+  background-color: green;
+  color: white;
+  z-index: 90;
+  height: 40vh;
+  width: 80vw;
+  animation: animNav 10s cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s 1 normal
+    forwards;
+}
+@keyframes animNav {
+  from {
+    display: none;
+  }
+  to {
+    display: flex;
+  }
+}
+
+.burger {
+  font-size: 2em;
+  position: absolute;
+  right: 0px;
+  margin: 5px;
+}
+
+.close {
+  font-size: 2em;
+}
+.nav-large {
+  display: none;
+}
+nav ul li {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.6em;
+  margin: auto 1em;
+}
+@media screen and (min-width: 600px) {
+  nav ul li {
+    padding: 0.3em;
+    margin: auto 0.5em;
+  }
+  .burger {
+    display: none;
+  }
+  .nav-mobile {
+    display: none;
+  }
+  .nav-large {
+    display: block;
+  }
+
+  .nav-large ul li {
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 1000px) {
+  nav {
+    background-color: green;
+    color: white;
+  }
+  nav ul li {
+    padding: 0.6em;
+    margin: auto 1em;
+  }
+}

@@ -16,7 +16,7 @@ function Home() {
         style={{
           backgroundColor: "#131313",
           padding: "0",
-          "margin-left": "50px",
+
           "margin-right": "1px",
 
           "margin-top": "0",
@@ -28,7 +28,7 @@ function Home() {
             className="descrp"
             style={{ "border-top-right-radius": "230px", "padding-top": "5em" }}
           >
-            <h1>LET US WET YOUR APPETITE...</h1>
+            <h1 className="home-h1">LET US WET YOUR APPETITE...</h1>
             <div className="cta">
               <div className="img">
                 <img src={pizza} alt="" />

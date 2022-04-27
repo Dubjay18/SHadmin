@@ -4,7 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import logo from "../images/G34.gif";
 export default function Navigation() {
   return (
-    <Navbar bg="light" variant="light">
+    <Navbar bg="light" variant="light" expand={"lg"}>
       <Container>
         <Navbar.Brand href="/">
           <Col
@@ -17,20 +17,23 @@ export default function Navigation() {
             <Image src={logo} fluid />
           </Col>
         </Navbar.Brand>
-        <Nav className="ml-auto">
-          <LinkContainer to="/">
-            <Nav.Link>Home</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/about">
-            <Nav.Link>About</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/products">
-            <Nav.Link>Products</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/contact">
-            <Nav.Link>Contact</Nav.Link>
-          </LinkContainer>
-        </Nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <LinkContainer to="/">
+              <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <Nav.Link>About</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/products">
+              <Nav.Link>Products</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/contact">
+              <Nav.Link>Contact</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
