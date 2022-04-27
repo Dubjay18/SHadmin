@@ -6,6 +6,8 @@ import bannerImg from "../images/Rectangle 10.png";
 import delImg from "../images/Rectangle 22.png";
 import eatImg from "../images/Rectangle 21.png";
 import { Link } from "react-router-dom";
+import Navigation from "../components/Navigation";
+import Footer from '../components/Footer'
 import "./products.css";
 const Apikey = "3c4feed6ffb84681b1652949ebada8ff";
 function Products() {
@@ -44,6 +46,7 @@ function Products() {
 
   return (
     <div className="cus-bg">
+      <Navigation />
       <div className="banner">
         <img
           src={bannerImg}
@@ -227,6 +230,7 @@ function Products() {
           })}
         </Row>
       </div>
+      <Footer />
     </div>
   );
 }
