@@ -24,7 +24,7 @@ function Sidebar() {
         variants={container}
         initial="hidden"
         animate="show"
-        className=" h-100 px-5 py-4 bg-black d-flex flex-column"
+        className=" h-100 px-md-5 px-2 py-4 bg-black d-flex flex-column"
       >
         <div className="p-4">
           {" "}
@@ -36,7 +36,7 @@ function Sidebar() {
             whileTap={{ scale: 0.9 }}
             variants={item}
           >
-            <Link to={"/"} className="text-white link px-4 py-5">
+            <Link to={"/"} className="text-white link px-md-4 px-2 py-5">
               Home
             </Link>
           </motion.h5>
@@ -51,7 +51,10 @@ function Sidebar() {
             whileTap={{ scale: 0.9 }}
             variants={item}
           >
-            <Link to={"/products"} className="text-white link px-4 py-5">
+            <Link
+              to={"/products"}
+              className="text-white link px-md-4 px-2 py-5"
+            >
               Products
             </Link>
           </motion.h5>
@@ -65,7 +68,7 @@ function Sidebar() {
             whileTap={{ scale: 0.9 }}
             variants={item}
           >
-            <Link to={"/clients"} className="text-white link px-4 py-5">
+            <Link to={"/clients"} className="text-white link px-md-4 px-2 py-5">
               Clients
             </Link>
           </motion.h5>
