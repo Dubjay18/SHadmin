@@ -1,8 +1,12 @@
+import { signOut } from "firebase/auth";
 import { motion } from "framer-motion/dist/framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../firebase";
+import { useStateValue } from "../stateProvider";
 
 function Sidebar() {
+  const [{ user }, dispatch] = useStateValue();
   const container = {
     hidden: { opacity: 0, marginLeft: "-100px" },
     show: {
@@ -18,6 +22,23 @@ function Sidebar() {
     hidden: { opacity: 0 },
     show: { opacity: 1 },
   };
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        });
+        dispatch({
+          type: "SET_UID",
+          uid: null,
+        });
+      })
+      .catch((error) => {
+        // An error happened.
+        alert(error.message);
+      });
+  };
   return (
     <>
       <motion.div
@@ -26,6 +47,19 @@ function Sidebar() {
         animate="show"
         className=" h-100 px-md-5 px-2 py-4 bg-black d-flex flex-column"
       >
+        <div className="p-4">
+          {" "}
+          <motion.h3
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.4 },
+            }}
+            variants={item}
+            className="w-50 text-white"
+          >
+            Welcome, {user}
+          </motion.h3>
+        </div>
         <div className="p-4">
           {" "}
           <motion.h5
@@ -81,6 +115,7 @@ function Sidebar() {
             }}
             whileTap={{ scale: 0.9 }}
             className="btn btn-outline-light"
+            onClick={logOut}
           >
             Logout
           </motion.button>
