@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Products from "./pages/Products.js";
 import "./App.css";
@@ -12,7 +12,17 @@ import { useEffect } from "react";
 import { useStateValue } from "./stateProvider";
 
 function App() {
-  const [{ user, uid }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    console.log("close 1");
+    setShow(false);
+    console.log("close");
+  };
+  const handleShow = () => {
+    setShow(true);
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (userCred) => {
       if (userCred) {
@@ -46,11 +56,17 @@ function App() {
     <div className="h-screen">
       <BrowserRouter className="">
         <div className="d-flex h-100">
-          <Sidebar />
+          <Sidebar show={show} handleClose={handleClose} />
           <Routes>
-            <Route path={"/"} element={<Home />} />
-            <Route path={"/clients"} element={<Clients />} />
-            <Route path={"/products"} element={<Products />} />
+            <Route path={"/"} element={<Home handleShow={handleShow} />} />
+            <Route
+              path={"/clients"}
+              element={<Clients handleShow={handleShow} />}
+            />
+            <Route
+              path={"/products"}
+              element={<Products handleShow={handleShow} />}
+            />
           </Routes>
         </div>
       </BrowserRouter>
