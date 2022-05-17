@@ -4,6 +4,21 @@
 .link {
   text-decoration: none;
 }
-.cursor{
+.cursor {
   cursor: pointer;
+}
+.Am {
+  background-color: #0088fe;
+}
+.question {
+  height: 300px;
+}
+.question-2 {
+  min-width: 200px;
+  height: 300px;
+}
+
+.question-container {
+  width: 100%;
+  height: 100%;
 }

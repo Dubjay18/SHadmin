@@ -7,6 +7,8 @@ import { useStateValue } from "../stateProvider";
 import pro from "../images/4DHCdLB-wallpapers-naruto-shippuden-hd-2015.jpg";
 import { Offcanvas } from "react-bootstrap";
 import { CloseButton } from "react-bootstrap";
+import { Grid, Bag, People } from "react-bootstrap-icons";
+
 function Sidebar({ show, handleClose }) {
   const [{ user }, dispatch] = useStateValue();
 
@@ -85,9 +87,11 @@ function Sidebar({ show, handleClose }) {
               }}
               whileTap={{ scale: 0.9 }}
               variants={item}
+              className="d-flex align-items-center"
             >
+              <Grid size={20} color="white" />
               <Link to={"/"} className="text-white link px-md-4 px-2 py-5">
-                Home
+                Dashboard
               </Link>
             </motion.h5>
           </div>
@@ -100,7 +104,9 @@ function Sidebar({ show, handleClose }) {
               }}
               whileTap={{ scale: 0.9 }}
               variants={item}
+              className="d-flex align-items-center"
             >
+              <Bag color="white" size={20} />
               <Link
                 to={"/products"}
                 className="text-white link px-md-4 px-2 py-5"
@@ -117,7 +123,9 @@ function Sidebar({ show, handleClose }) {
               }}
               whileTap={{ scale: 0.9 }}
               variants={item}
+              className="d-flex align-items-center"
             >
+              <People size={20} color="white" />
               <Link
                 to={"/clients"}
                 className="text-white link px-md-4 px-2 py-5"
@@ -176,9 +184,11 @@ function Sidebar({ show, handleClose }) {
             }}
             whileTap={{ scale: 0.9 }}
             variants={item}
+            className="d-flex align-items-center"
           >
+            <Grid size={20} color="white" />
             <Link to={"/"} className="text-white link px-md-4 px-2 py-5">
-              Home
+              Dashboard
             </Link>
           </motion.h5>
         </div>
@@ -191,7 +201,9 @@ function Sidebar({ show, handleClose }) {
             }}
             whileTap={{ scale: 0.9 }}
             variants={item}
+            className="d-flex align-items-center"
           >
+            <Bag color="white" size={20} />
             <Link
               to={"/products"}
               className="text-white link px-md-4 px-2 py-5"
@@ -208,7 +220,9 @@ function Sidebar({ show, handleClose }) {
             }}
             whileTap={{ scale: 0.9 }}
             variants={item}
+            className="d-flex align-items-center"
           >
+            <People size={20} color="white" />
             <Link to={"/clients"} className="text-white link px-md-4 px-2 py-5">
               Clients
             </Link>

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import Products from "./pages/Products.js";
 import "./App.css";
@@ -10,8 +16,10 @@ import Login from "./pages/Login";
 import { auth } from "./firebase";
 import { useEffect } from "react";
 import { useStateValue } from "./stateProvider";
+import { AnimatePresence } from "framer-motion/dist/framer-motion";
 
 function App() {
+  const location = useLocation();
   const [{ user }, dispatch] = useStateValue();
   const [show, setShow] = useState(false);
 
@@ -54,10 +62,10 @@ function App() {
   }
   return (
     <div className="h-screen">
-      <BrowserRouter className="">
-        <div className="d-flex h-100">
-          <Sidebar show={show} handleClose={handleClose} />
-          <Routes>
+      <div className="d-flex h-100">
+        <Sidebar show={show} handleClose={handleClose} />
+        <AnimatePresence>
+          <Routes location={location} key={location.key}>
             <Route path={"/"} element={<Home handleShow={handleShow} />} />
             <Route
               path={"/clients"}
@@ -68,8 +76,8 @@ function App() {
               element={<Products handleShow={handleShow} />}
             />
           </Routes>
-        </div>
-      </BrowserRouter>
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
