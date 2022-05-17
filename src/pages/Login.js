@@ -109,6 +109,11 @@ function Login() {
 
   return (
     <div className="bg-dark">
+      {!show && (
+        <h1 className="text-white d-flex align-items-center justify-content-center ">
+          Sh34 Store Admin
+        </h1>
+      )}
       <Alert className="absolute" show={show} variant="info">
         <Alert.Heading>Alert</Alert.Heading>
         <p>{text}</p>
