@@ -90,7 +90,11 @@ function Sidebar({ show, handleClose }) {
               className="d-flex align-items-center"
             >
               <Grid size={20} color="white" />
-              <Link to={"/"} className="text-white link px-md-4 px-2 py-5">
+              <Link
+                to={"/"}
+                onClick={handleClose}
+                className="text-white link px-md-4 px-2 py-5"
+              >
                 Dashboard
               </Link>
             </motion.h5>
@@ -109,6 +113,7 @@ function Sidebar({ show, handleClose }) {
               <Bag color="white" size={20} />
               <Link
                 to={"/products"}
+                onClick={handleClose}
                 className="text-white link px-md-4 px-2 py-5"
               >
                 Products
@@ -128,6 +133,7 @@ function Sidebar({ show, handleClose }) {
               <People size={20} color="white" />
               <Link
                 to={"/clients"}
+                onClick={handleClose}
                 className="text-white link px-md-4 px-2 py-5"
               >
                 Clients
