@@ -48,7 +48,10 @@ function Login() {
         updateProfile(auth.currentUser, {
           displayName: name,
         })
-          .then(() => {})
+          .then(() => {
+            console.log(name);
+            window.location.reload();
+          })
           .catch((error) => {
             setDisable(false);
             alert(error?.message);
@@ -57,7 +60,7 @@ function Login() {
       })
       .catch((error) => {
         setDisable(false);
-        console.log(error);
+        alert(error?.message);
         // ..
       });
   };
