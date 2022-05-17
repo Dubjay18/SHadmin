@@ -1,12 +1,13 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import BarChartNew from "../components/BarChartNew";
 import MyChart from "../components/MyChart";
-import Nav from "../components/Nav";
+
 import PieNew from "../components/PieNew";
 import { motion } from "framer-motion/dist/framer-motion";
 
 import { useStateValue } from "./../stateProvider";
+import { List } from "react-bootstrap-icons";
 function Home({ handleShow }) {
   const container = {
     hidden: { opacity: 0, x: "100vw" },
@@ -47,9 +48,10 @@ function Home({ handleShow }) {
     >
       <div className="p-3 shadow w-100 d-flex justify-content-between align-items-center">
         <h4>Dashboard</h4>
-        <h5 className="d-md-none" onClick={handleShow}>
-          Menu
-        </h5>
+
+        <Button variant="light" className="d-md-none" onClick={handleShow}>
+          <List />
+        </Button>
       </div>
       <div>
         <Row className="mx-2">

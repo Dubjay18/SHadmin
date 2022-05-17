@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion/dist/framer-motion";
+import { List } from "react-bootstrap-icons";
+import { Button } from "react-bootstrap";
 function Clients({ handleShow }) {
   const container = {
     hidden: { opacity: 0, x: "100vw" },
@@ -34,9 +36,9 @@ function Clients({ handleShow }) {
     >
       <div className="p-3 shadow w-100 d-flex justify-content-between align-items-center">
         <h4>Clients</h4>
-        <h5 className="d-md-none" onClick={handleShow}>
-          Menu
-        </h5>
+        <Button variant="light" className="d-md-none" onClick={handleShow}>
+          <List />
+        </Button>
       </div>
       Clients
     </motion.div>
