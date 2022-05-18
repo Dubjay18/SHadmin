@@ -1,15 +1,16 @@
 export const initialState = {
   user: null,
   uid: null,
-  darkmode: true,
+  sidebar: "false",
 };
 export const actionTypes = {
   SET_USER: "SET_USER",
   SET_UID: "SET_UID",
-  SET_DARKMODE: "SET_DARKMODE",
+  SET_SIDEBAR: "SET_SIDEBAR",
 };
 
 const reducer = (state, action) => {
+  console.log(action);
   switch (action.type) {
     case actionTypes.SET_USER:
       return {
@@ -21,10 +22,10 @@ const reducer = (state, action) => {
         ...state,
         uid: action.uid,
       };
-    case actionTypes.SET_DARKMODE:
+    case actionTypes.SET_SIDEBAR:
       return {
         ...state,
-        darkmode: action.darkmode,
+        sidebar: action.SIDEBAR,
       };
 
     default:

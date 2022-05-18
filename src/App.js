@@ -1,5 +1,11 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import Products from "./pages/Products.js";
 import "./App.css";
@@ -10,9 +16,21 @@ import Login from "./pages/Login";
 import { auth } from "./firebase";
 import { useEffect } from "react";
 import { useStateValue } from "./stateProvider";
+import { AnimatePresence } from "framer-motion/dist/framer-motion";
 
 function App() {
-  const [{ user, uid }, dispatch] = useStateValue();
+  const location = useLocation();
+  const [{ user }, dispatch] = useStateValue();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    console.log("close 1");
+    setShow(false);
+    console.log("close");
+  };
+  const handleShow = () => {
+    setShow(true);
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (userCred) => {
       if (userCred) {
@@ -44,16 +62,22 @@ function App() {
   }
   return (
     <div className="h-screen">
-      <BrowserRouter className="">
-        <div className="d-flex h-100">
-          <Sidebar />
-          <Routes>
-            <Route path={"/"} element={<Home />} />
-            <Route path={"/clients"} element={<Clients />} />
-            <Route path={"/products"} element={<Products />} />
+      <div className="d-flex h-100">
+        <Sidebar show={show} handleClose={handleClose} />
+        <AnimatePresence>
+          <Routes location={location} key={location.key}>
+            <Route path={"/"} element={<Home handleShow={handleShow} />} />
+            <Route
+              path={"/clients"}
+              element={<Clients handleShow={handleShow} />}
+            />
+            <Route
+              path={"/products"}
+              element={<Products handleShow={handleShow} />}
+            />
           </Routes>
-        </div>
-      </BrowserRouter>
+        </AnimatePresence>
+      </div>
     </div>
   );
 }

@@ -6,12 +6,15 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { StateProvider } from "./stateProvider";
 import reducer, { initialState } from "./reducer";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
     <StateProvider initialState={initialState} reducer={reducer}>
-      {" "}
-      <App />
+      <BrowserRouter>
+        {" "}
+        <App />
+      </BrowserRouter>
     </StateProvider>
   </React.StrictMode>,
   document.getElementById("root")

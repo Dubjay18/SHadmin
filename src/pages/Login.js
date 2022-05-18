@@ -6,7 +6,7 @@ import {
 } from "firebase/auth";
 import React from "react";
 import { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion/dist/framer-motion";
 import { auth } from "../firebase";
 
@@ -19,7 +19,7 @@ function Login() {
   const [fp, setFp] = useState(false);
   const [show, setShow] = useState(false);
   const [text, setText] = useState("");
-
+  const [disable, setDisable] = useState(false);
   const container = {
     hidden: { opacity: 0, marginTop: "-1000px" },
     show: {
@@ -33,37 +33,46 @@ function Login() {
   };
 
   const item = {
-    hidden: { opacity: 0, marginTop: "-1000px" },
-    show: { opacity: 1, marginTop: "0px" },
+    hidden: { opacity: 0, margintop: "-1000px" },
+    show: { opacity: 1, margintop: "0px" },
   };
   const register = (e) => {
     e.preventDefault();
+    setDisable(true);
     if (password !== password2) {
+      setDisable(false);
       return AlertDismissible("Passwords don't match");
     }
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        // Signed in
         updateProfile(auth.currentUser, {
           displayName: name,
         })
-          .then(() => {})
+          .then(() => {
+            console.log(name);
+            window.location.reload();
+          })
           .catch((error) => {
+            setDisable(false);
             alert(error?.message);
           });
         // ...
       })
       .catch((error) => {
-        console.log(error);
+        setDisable(false);
+        alert(error?.message);
         // ..
       });
   };
   const SignIn = (e) => {
     e.preventDefault();
+    setDisable(true);
     if (email === "") {
+      setDisable(false);
       return AlertDismissible("Please type in your email");
     }
     if (password === "") {
+      setDisable(false);
       return AlertDismissible("Please type in your password");
     }
     signInWithEmailAndPassword(auth, email, password)
@@ -72,6 +81,7 @@ function Login() {
         // ...
       })
       .catch((error) => {
+        setDisable(false);
         alert(error.message);
       });
   };
@@ -102,6 +112,11 @@ function Login() {
 
   return (
     <div className="bg-dark">
+      {!show && (
+        <h1 className="text-white d-flex align-items-center justify-content-center ">
+          Sh34 Store Admin
+        </h1>
+      )}
       <Alert className="absolute" show={show} variant="info">
         <Alert.Heading>Alert</Alert.Heading>
         <p>{text}</p>
@@ -198,18 +213,28 @@ function Login() {
                     variant="info"
                     className="w-100 my-3 text-white "
                     type="submit"
+                    disabled={disable}
                     onClick={register}
                   >
-                    Submit
+                    {disable ? (
+                      <Spinner size="sm" animation="border" />
+                    ) : (
+                      "Submit"
+                    )}
                   </Button>
                 ) : (
                   <Button
                     variant="info"
                     className="w-100 my-3 text-white "
                     onClick={SignIn}
+                    disabled={disable}
                     type="submit"
                   >
-                    Submit
+                    {disable ? (
+                      <Spinner size="sm" animation="border" />
+                    ) : (
+                      "Submit"
+                    )}
                   </Button>
                 )}
                 <p className="text-muted">
