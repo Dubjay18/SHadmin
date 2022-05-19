@@ -11,6 +11,7 @@ import Products from "./pages/Products.js";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Clients from "./pages/Clients";
+import TeamMembers from "./pages/TeamMembers";
 import { onAuthStateChanged } from "firebase/auth";
 import Login from "./pages/Login";
 import { auth } from "./firebase";
@@ -74,6 +75,10 @@ function App() {
             <Route
               path={"/products"}
               element={<Products handleShow={handleShow} />}
+            />
+            <Route
+              path={"/teammembers"}
+              element={<TeamMembers handleShow={handleShow} />}
             />
           </Routes>
         </AnimatePresence>
