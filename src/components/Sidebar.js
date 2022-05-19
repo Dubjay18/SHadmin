@@ -140,6 +140,27 @@ function Sidebar({ show, handleClose }) {
               </Link>
             </motion.h5>
           </div>
+          <div className="p-4">
+            <motion.h5
+              whileHover={{
+                
+                scale: 1.2,
+                transition: { duration: 0.4 },
+              }}
+              whileTap={{ scale: 0.9 }}
+              variants={item}
+              className="d-flex align-items-center"
+            >
+              <People size={20} color="white" />
+              <Link
+                to={"/teammembers"}
+                onClick={handleClose}
+                className="text-white link px-md-4 px-2 py-5"
+              >
+                TeamMembers
+              </Link>
+            </motion.h5>
+          </div>
           <motion.div variants={item} className="p-4  mt-auto">
             <motion.button
               whileHover={{
@@ -231,6 +252,25 @@ function Sidebar({ show, handleClose }) {
             <People size={20} color="white" />
             <Link to={"/clients"} className="text-white link px-md-4 px-2 py-5">
               Clients
+            </Link>
+          </motion.h5>
+        </div>
+        <div className="p-4">
+          <motion.h5
+            whileHover={{
+              scale: 1.2,
+              transition: { duration: 0.4 },
+            }}
+            whileTap={{ scale: 0.9 }}
+            variants={item}
+            className="d-flex align-items-center"
+          >
+            <Bag color="white" size={20} />
+            <Link
+              to={"/teammembers"}
+              className="text-white link px-md-4 px-2 py-5"
+            >
+              TeamMembers
             </Link>
           </motion.h5>
         </div>

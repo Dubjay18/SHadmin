@@ -22,3 +22,12 @@
   width: 100%;
   height: 100%;
 }
+
+/*td,th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}*/
+
+th {
+  justify-content: center;
+}

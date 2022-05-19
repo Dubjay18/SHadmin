@@ -2,8 +2,7 @@ import React from "react";
 import { motion } from "framer-motion/dist/framer-motion";
 import { List } from "react-bootstrap-icons";
 import { Button } from "react-bootstrap";
-import Template from '../components/teamtemplate'
-function Products({ handleShow }) {
+function TeamMembers({ handleShow }) {
   const container = {
     hidden: { opacity: 0, x: "100vw" },
     show: {
@@ -27,7 +26,6 @@ function Products({ handleShow }) {
       },
     },
   };
-
   return (
     <motion.div
       variants={container}
@@ -37,16 +35,14 @@ function Products({ handleShow }) {
       className="w-100"
     >
       <div className="p-3 shadow w-100 d-flex justify-content-between align-items-center">
-        <h4>Products</h4>
+        <h4>Clients</h4>
         <Button variant="light" className="d-md-none" onClick={handleShow}>
           <List />
         </Button>
       </div>
-
-      <Template />
-
+      Team Members
     </motion.div>
   );
 }
 
-export default Products;
+export default TeamMembers;
