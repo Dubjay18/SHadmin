@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Table from 'react-bootstrap/Table';
 
 export default function Template() {
-    const [members, setMembers] = useState([]);
-    const url = "https://fakerapi.it/api/v1/persons?_quantity=10"
+    const [clients, setMembers] = useState([]);
+    const url = "https://fakerapi.it/api/v1/companies?_quantity=1"
 
     const fetchPost = async () => {
         const response = await fetch(url);
@@ -28,13 +28,13 @@ export default function Template() {
                 </tr>
             </thead>
             <tbody>
-                {members.map((item, i) => (
+                {clients.map((item, i) => (
                     <tr key={i}>
-                        <td>{item.firstname} {item.lastname}</td>
-                        <td>{item.email}</td>
-                        <td>{item.phone}</td>
-                        <td>{item.gender}</td>
-                        <td>{item.image}</td>
+                        <td>{item.contact.firstname} {item.contact.lastname}</td>
+                        <td>{item.contact.email}</td>
+                        <td>{item.contact.phone}</td>
+                        <td>{item.contact.gender}</td>
+                        <td>{item.contact.image}</td>
                     </tr>
                 ))}
             </tbody>
