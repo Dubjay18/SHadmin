@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion/dist/framer-motion";
 import { List } from "react-bootstrap-icons";
 import { Button } from "react-bootstrap";
+import Template from '../components/producttemplate'
 function Products({ handleShow }) {
   const container = {
     hidden: { opacity: 0, x: "100vw" },
@@ -42,7 +43,7 @@ function Products({ handleShow }) {
         </Button>
       </div>
 
-  
+      <Template />
 
     </motion.div>
   );
