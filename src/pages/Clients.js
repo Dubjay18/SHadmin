@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion/dist/framer-motion";
 import { List } from "react-bootstrap-icons";
 import { Button } from "react-bootstrap";
+import Template from '../components/clienttemplate'
+
 function Clients({ handleShow }) {
   const container = {
     hidden: { opacity: 0, x: "100vw" },
@@ -40,7 +42,7 @@ function Clients({ handleShow }) {
           <List />
         </Button>
       </div>
-      Clients
+      <Template />
     </motion.div>
   );
 }
