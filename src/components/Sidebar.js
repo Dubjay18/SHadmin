@@ -93,7 +93,7 @@ function Sidebar({ show, handleClose }) {
               <Link
                 to={"/"}
                 onClick={handleClose}
-                className="text-white link px-md-4 px-2 py-5"
+                className="text-white link px-md-4 px-2 py-2"
               >
                 Dashboard
               </Link>
@@ -114,7 +114,7 @@ function Sidebar({ show, handleClose }) {
               <Link
                 to={"/products"}
                 onClick={handleClose}
-                className="text-white link px-md-4 px-2 py-5"
+                className="text-white link px-md-4 px-2 py-2"
               >
                 Products
               </Link>
@@ -134,7 +134,7 @@ function Sidebar({ show, handleClose }) {
               <Link
                 to={"/clients"}
                 onClick={handleClose}
-                className="text-white link px-md-4 px-2 py-5"
+                className="text-white link px-md-4 px-2 py-2"
               >
                 Clients
               </Link>
@@ -155,7 +155,7 @@ function Sidebar({ show, handleClose }) {
               <Link
                 to={"/teammembers"}
                 onClick={handleClose}
-                className="text-white link px-md-4 px-2 py-5"
+                className="overflow-scroll text-white link px-md-4 px-2 py-2"
               >
                 TeamMembers
               </Link>
